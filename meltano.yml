@@ -24,3 +24,14 @@ plugins:
     config:
       start_date: '2021-03-22T00:00:00-04:00'
       user_agent: tap-covid-19 <danzbyrd@gmail.com>
+    select:
+    - c19_trk_us_states_daily.*
+    metadata:
+      c19_trk_us_states_daily:
+        replication-method: FULL_TABLE
+  loaders:
+  - name: target-csv
+    variant: singer-io
+    pip_url: target-csv
+    config:
+      destination_path: /home/danzbyrd/Extracts/covid_19_extracts

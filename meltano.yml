@@ -9,3 +9,18 @@ plugins:
     config:
       projects: meltano/meltano meltano/tap-gitlab
       start_date: '2021-03-22T00:00:00-04:00'
+  - name: tap-covid-19
+    namespace: tap_covid_19
+    pip_url: tap-covid-19
+    executable: tap-covid-19
+    capabilities:
+    - catalog
+    - discover
+    - state
+    settings:
+    - name: api_token
+    - name: start_date
+    - name: user_agent
+    config:
+      start_date: '2021-03-22T00:00:00-04:00'
+      user_agent: tap-covid-19 <danzbyrd@gmail.com>

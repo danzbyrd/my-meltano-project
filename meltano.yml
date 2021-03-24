@@ -25,10 +25,7 @@ plugins:
       start_date: '2021-03-22T00:00:00-04:00'
       user_agent: tap-covid-19 <danzbyrd@gmail.com>
     select:
-    - c19_trk_us_states_daily.*
-    metadata:
-      c19_trk_us_states_daily:
-        replication-method: FULL_TABLE
+    - nytimes_us_states.*
   loaders:
   - name: target-csv
     variant: singer-io

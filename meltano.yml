@@ -22,7 +22,7 @@ plugins:
     - name: start_date
     - name: user_agent
     config:
-      start_date: '2021-03-22T00:00:00-04:00'
+      start_date: '2021-03-24'
       user_agent: tap-covid-19 <danzbyrd@gmail.com>
     select:
     - nytimes_us_states.*
@@ -32,3 +32,10 @@ plugins:
     pip_url: target-csv
     config:
       destination_path: /home/danzbyrd/Extracts/covid_19_extracts
+schedules:
+- name: covid_states_daily
+  extractor: tap-covid-19
+  loader: target-csv
+  transform: skip
+  interval: '@daily'
+  start_date: 2021-03-24 00:00:00
